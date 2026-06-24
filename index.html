@@ -1,379 +1,228 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Training Mockup</title>
-  <meta name="description" content="Mockup for a project management training website inspired by Promanac-style structure and messaging." />
-  <link rel="preconnect" href="https://api.fontshare.com" />
+  <title>Project Management Mockups | Index</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=cabinet-grotesk@500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
   <style>
-    :root, [data-theme="light"] {
-      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
-      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
-      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
-      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
-      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
-      --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
-      --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
-      --color-bg: #f7f6f2;
-      --color-surface: #fbfbf8;
-      --color-surface-2: #f1efe9;
-      --color-surface-offset: #ebe7df;
-      --color-border: #d7d1c7;
-      --color-divider: #e2ddd4;
-      --color-text: #1f2528;
-      --color-text-muted: #5f6a70;
-      --color-text-faint: #8f989d;
-      --color-text-inverse: #f9fbfb;
-      --color-primary: #0b6b73;
-      --color-primary-hover: #084e54;
-      --color-primary-highlight: #d7e7e8;
-      --color-success: #45792c;
-      --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.875rem; --radius-xl: 1.25rem; --radius-full: 9999px;
-      --shadow-sm: 0 1px 2px rgba(22,26,29,.06);
-      --shadow-md: 0 12px 32px rgba(22,26,29,.08);
-      --content: 1180px;
-      --font-body: 'Satoshi', 'Inter', sans-serif;
-      --font-display: 'Cabinet Grotesk', 'Inter', sans-serif;
+    :root {
+      --color-bg: #0b0f19;
+      --color-surface: #111827;
+      --color-border: #1f2937;
+      --color-text: #f9fafb;
+      --color-text-muted: #9ca3af;
+      --color-accent: #3b82f6;
+      --radius: 12px;
+      --font-display: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
     }
-    [data-theme="dark"] {
-      --color-bg: #111516;
-      --color-surface: #171c1d;
-      --color-surface-2: #1c2224;
-      --color-surface-offset: #21282a;
-      --color-border: #2d383b;
-      --color-divider: #243032;
-      --color-text: #edf1f2;
-      --color-text-muted: #b3bec2;
-      --color-text-faint: #7f8c91;
-      --color-text-inverse: #111516;
-      --color-primary: #6ab4ba;
-      --color-primary-hover: #8cc9cd;
-      --color-primary-highlight: #203235;
-      --color-success: #89bf68;
-      --shadow-sm: 0 1px 2px rgba(0,0,0,.28);
-      --shadow-md: 0 16px 40px rgba(0,0,0,.35);
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:var(--font-body);font-size:var(--text-base);line-height:1.6;background:var(--color-bg);color:var(--color-text)}
-    img,svg{display:block;max-width:100%}
-    a{text-decoration:none;color:inherit}
-    button{font:inherit;cursor:pointer;border:none;background:none}
-    .container{width:min(calc(100% - 2rem), var(--content));margin-inline:auto}
-    .skip-link{position:absolute;left:-999px;top:auto}.skip-link:focus{left:1rem;top:1rem;background:var(--color-text);color:var(--color-text-inverse);padding:.75rem 1rem;border-radius:var(--radius-md);z-index:999}
-    .topbar{background:var(--color-surface-2);border-bottom:1px solid var(--color-divider);font-size:var(--text-sm)}
-    .topbar .container{display:flex;justify-content:space-between;gap:var(--space-4);padding:.75rem 0;flex-wrap:wrap}
-    .header{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--color-bg) 88%, transparent);backdrop-filter:blur(14px);border-bottom:1px solid color-mix(in srgb, var(--color-border) 70%, transparent)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;gap:var(--space-4)}
-    .brand{display:flex;align-items:center;gap:.9rem;font-weight:700}
-    .brand-mark{width:2.25rem;height:2.25rem;border-radius:0.8rem;background:linear-gradient(135deg,var(--color-primary),color-mix(in srgb, var(--color-primary) 45%, white));display:grid;place-items:center;color:white;box-shadow:var(--shadow-sm)}
-    .brand-mark svg{width:1.15rem;height:1.15rem}
-    .brand-text strong{display:block;font-family:var(--font-display);font-size:1.05rem;letter-spacing:.01em}
-    .brand-text span{display:block;font-size:var(--text-xs);color:var(--color-text-muted)}
-    .nav-links{display:flex;gap:1.25rem;align-items:center;color:var(--color-text-muted);font-size:var(--text-sm)}
-    .theme-toggle{display:grid;place-items:center;width:2.75rem;height:2.75rem;border:1px solid var(--color-border);border-radius:var(--radius-full);background:var(--color-surface)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.85rem 1.15rem;border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:700;transition:all .2s ease}
-    .btn-primary{background:var(--color-primary);color:var(--color-text-inverse)}
-    .btn-primary:hover{background:var(--color-primary-hover)}
-    .btn-secondary{border:1px solid var(--color-border);background:var(--color-surface)}
-    .hero{padding:clamp(3.5rem,8vw,7rem) 0 var(--space-16)}
-    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space-12);align-items:center}
-    .eyebrow{display:inline-flex;gap:.55rem;align-items:center;padding:.45rem .8rem;border-radius:var(--radius-full);background:var(--color-primary-highlight);color:var(--color-primary);font-size:var(--text-xs);font-weight:700;letter-spacing:.05em;text-transform:uppercase}
-    h1{font-family:var(--font-display);font-size:var(--text-2xl);line-height:1.02;max-width:12ch;margin:1rem 0 1rem}
-    .hero p{max-width:60ch;color:var(--color-text-muted)}
-    .hero-actions{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:var(--space-6)}
-    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);margin-top:var(--space-8)}
-    .stat{padding:1rem;border-top:1px solid var(--color-border)}
-    .stat strong{display:block;font-family:var(--font-display);font-size:var(--text-lg)}
-    .hero-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);box-shadow:var(--shadow-md);padding:var(--space-6)}
-    .hero-card .mini{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-faint);margin-bottom:.75rem}
-    .batch{padding:1.1rem 0;border-top:1px solid var(--color-divider)}
-    .batch:first-of-type{border-top:none;padding-top:0}
-    .batch h3{font-size:var(--text-lg);font-family:var(--font-display);margin-bottom:.4rem}
-    .batch ul{list-style:none;display:grid;gap:.5rem;margin-top:.75rem;color:var(--color-text-muted);font-size:var(--text-sm)}
-    .batch li::before{content:'• ';color:var(--color-primary)}
-    section{padding:var(--space-16) 0}
-    .section-head{display:flex;justify-content:space-between;gap:var(--space-6);align-items:end;margin-bottom:var(--space-8)}
-    .section-head h2{font-family:var(--font-display);font-size:var(--text-xl);max-width:12ch}
-    .section-head p{max-width:56ch;color:var(--color-text-muted)}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)}
-    .card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6);box-shadow:var(--shadow-sm)}
-    .card .tag{display:inline-block;margin-bottom:.9rem;padding:.35rem .65rem;border-radius:var(--radius-full);font-size:var(--text-xs);background:var(--color-surface-2);color:var(--color-text-muted)}
-    .card h3{font-size:var(--text-lg);font-family:var(--font-display);margin-bottom:.5rem}
-    .card p{color:var(--color-text-muted)}
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6)}
-    .feature-panel{background:linear-gradient(180deg,var(--color-surface),var(--color-surface-2));border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-8)}
-    .bullet-list{display:grid;gap:1rem;margin-top:var(--space-5)}
-    .bullet{display:flex;gap:.85rem;align-items:flex-start}
-    .bullet i{flex:0 0 2rem;width:2rem;height:2rem;border-radius:50%;background:var(--color-primary-highlight);display:grid;place-items:center;color:var(--color-primary);font-style:normal;font-weight:700}
-    .trainer{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--space-6);align-items:stretch}
-    .trainer .profile{background:var(--color-surface-offset);border-radius:var(--radius-xl);padding:var(--space-8);min-height:320px;display:flex;flex-direction:column;justify-content:space-between}
-    .quote{font-size:var(--text-lg);font-family:var(--font-display);line-height:1.25}
-    .testimonial{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-5)}
-    .muted{color:var(--color-text-muted)}
-    .faq{display:grid;gap:1rem}
-    details{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:1rem 1.1rem}
-    summary{cursor:pointer;font-weight:700;list-style:none}
-    summary::-webkit-details-marker{display:none}
-    details p{padding-top:.85rem;color:var(--color-text-muted)}
-    .cta{background:var(--color-text);color:var(--color-text-inverse);border-radius:1.5rem;padding:clamp(2rem,5vw,4rem);display:grid;grid-template-columns:1.2fr .8fr;gap:var(--space-8);align-items:center}
-    .cta p{color:color-mix(in srgb,var(--color-text-inverse) 72%, transparent)}
-    .form{display:grid;gap:.85rem}
-    .form input,.form textarea{width:100%;padding:.95rem 1rem;border-radius:var(--radius-md);border:1px solid color-mix(in srgb, white 18%, transparent);background:rgba(255,255,255,.06);color:var(--color-text-inverse)}
-    .form input::placeholder,.form textarea::placeholder{color:rgba(255,255,255,.58)}
-    footer{padding:var(--space-8) 0 var(--space-12);color:var(--color-text-muted)}
-    .footer-row{display:flex;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;border-top:1px solid var(--color-divider);padding-top:var(--space-6)}
-    @media (max-width: 980px){
-      .hero-grid,.grid-3,.split,.trainer,.testimonial,.cta{grid-template-columns:1fr}
-      .section-head{align-items:start;flex-direction:column}
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem 1rem;
     }
-    @media (max-width: 760px){
-      .nav-links{display:none}
-      h1{max-width:unset}
-      .stats{grid-template-columns:1fr}
-      .hero{padding-top:2.5rem}
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--color-text-muted);
+      font-size: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background-color: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-accent);
+    }
+
+    .card-top {
+      margin-bottom: 1.5rem;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .m1-badge { background-color: #0f6b67; }
+    .m2-badge { background-color: #2563eb; }
+    .m3-badge { background-color: #0f172a; border: 1px solid #ffffff; }
+    .m5-badge { background-color: #c29b57; }
+
+    .card-desc {
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin-top: 1rem;
+    }
+
+    .card-link svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover .card-link svg {
+      transform: translateX(4px);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
     }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#content">Skip to content</a>
 
-  <div class="topbar">
-    <div class="container">
-      <div>info@yourbrand.com · +91 98XXX XXXXX</div>
-      <div>Live online programs · Corporate PM training · Academic partnerships</div>
-    </div>
+  <div class="container">
+    <header>
+      <h1>Mockup Index</h1>
+      <p>Select a concept layout to preview</p>
+    </header>
+
+    <main class="grid">
+      
+      <!-- Mockup 1 -->
+      <a href="mockup1.html" class="card">
+        <div class="card-top">
+          <h2 class="card-title">
+            <span class="badge m1-badge"></span>
+            PMP Coach Mockup
+          </h2>
+          <p class="card-desc">Warm, cozy, and editorial styling pairing elegant serifs with cream and green tones.</p>
+        </div>
+        <div class="card-link">
+          Open Mockup 
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </div>
+      </a>
+
+      <!-- Mockup 2 -->
+      <a href="mockup2.html" class="card">
+        <div class="card-top">
+          <h2 class="card-title">
+            <span class="badge m2-badge"></span>
+            Project Training Mockup
+          </h2>
+          <p class="card-desc">Structured tech-clean layout featuring Satoshi, Cabinet Grotesk, and royal blue accents.</p>
+        </div>
+        <div class="card-link">
+          Open Mockup
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </div>
+      </a>
+
+      <!-- Mockup 3 -->
+      <a href="mockup3.html" class="card">
+        <div class="card-top">
+          <h2 class="card-title">
+            <span class="badge m3-badge"></span>
+            Enterprise PM Mockup
+          </h2>
+          <p class="card-desc">A formal corporate interface utilizing Plus Jakarta Sans, heavy indigo surfaces, and high contrast.</p>
+        </div>
+        <div class="card-link">
+          Open Mockup
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </div>
+      </a>
+
+      <!-- Mockup 5 -->
+      <a href="mockup5.html" class="card">
+        <div class="card-top">
+          <h2 class="card-title">
+            <span class="badge m5-badge"></span>
+            Executive PM Mockup
+          </h2>
+          <p class="card-desc">Premium luxury layout showcasing Playfair Display, deep navy colors, and gold accents.</p>
+        </div>
+        <div class="card-link">
+          Open Mockup
+          <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </div>
+      </a>
+
+    </main>
+
+    <footer>
+      <p>&copy; Project Management Mockups collection</p>
+    </footer>
   </div>
 
-  <header class="header">
-    <div class="container nav">
-      <a href="#" class="brand" aria-label="ProjectEdge home">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 16 12 6l7 10"></path>
-            <path d="M8.5 16h7"></path>
-          </svg>
-        </span>
-        <span class="brand-text">
-          <strong>ProjectEdge</strong>
-          <span>Mockup for a certification training brand</span>
-        </span>
-      </a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#programs">Programs</a>
-        <a href="#why">Why us</a>
-        <a href="#trainer">Trainer</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <div style="display:flex;gap:.75rem;align-items:center;">
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </button>
-        <a class="btn btn-primary" href="#contact">Book a free call</a>
-      </div>
-    </div>
-  </header>
-
-  <main id="content">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">PMI-aligned training · live cohorts</span>
-          <h1>Project management training designed for exam success and real delivery confidence.</h1>
-          <p>This mockup takes the same professional-training layout direction as the reference site and turns it into a cleaner, more modern homepage for certification programs, corporate workshops, and partnership-led delivery.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#programs">Explore programs</a>
-            <a class="btn btn-secondary" href="#trainer">Meet the trainer</a>
-          </div>
-          <div class="stats" aria-label="Key highlights">
-            <div class="stat"><strong>35 hrs</strong><span class="muted">PMP contact-hour coverage</span></div>
-            <div class="stat"><strong>Live</strong><span class="muted">Instructor-led weekend format</span></div>
-            <div class="stat"><strong>3 offers</strong><span class="muted">Certification, corporate, partner delivery</span></div>
-          </div>
-        </div>
-        <aside class="hero-card" aria-label="Upcoming batches">
-          <div class="mini">Upcoming batches</div>
-          <div class="batch">
-            <h3>PMP Weekend Cohort</h3>
-            <p class="muted">A structured exam-prep track with mock-test walkthroughs, application guidance, and revision access.</p>
-            <ul>
-              <li>Live online format</li>
-              <li>Exam strategy + planning support</li>
-              <li>Recorded revision access</li>
-            </ul>
-          </div>
-          <div class="batch">
-            <h3>CAPM Foundation Cohort</h3>
-            <p class="muted">Built for early-career professionals who want a practical project-management base and certification readiness.</p>
-            <ul>
-              <li>PMI-aligned curriculum</li>
-              <li>Curated mock-test support</li>
-              <li>Trainer-led Q&A sessions</li>
-            </ul>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="programs">
-      <div class="container">
-        <div class="section-head">
-          <h2>Three clear service lines.</h2>
-          <p>The reference homepage separates its offer into certification training, corporate capability building, and partnership delivery, so this mockup keeps the same strategic structure while upgrading the visual polish and CTA flow.</p>
-        </div>
-        <div class="grid-3">
-          <article class="card">
-            <span class="tag">Certification</span>
-            <h3>PMP® and CAPM® prep</h3>
-            <p>Weekend and weekday tracks with structured study plans, exam-pattern coaching, and practical explanations instead of theory-heavy slides.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Corporate</span>
-            <h3>Training and consulting</h3>
-            <p>Custom workshops for delivery excellence, governance, PMO maturity, agile ways of working, and leadership capability.</p>
-          </article>
-          <article class="card">
-            <span class="tag">Partnerships</span>
-            <h3>Academic and ATP delivery</h3>
-            <p>Co-branded and white-label programs for institutes, universities, and learning partners that want a reliable training engine.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="why">
-      <div class="container split">
-        <div class="feature-panel">
-          <span class="eyebrow">Why this works</span>
-          <h2 style="font-family:var(--font-display);font-size:var(--text-xl);margin-top:1rem;">Built for trust before persuasion.</h2>
-          <div class="bullet-list">
-            <div class="bullet"><i>1</i><div><strong>Clear offers.</strong><p class="muted">Visitors quickly understand whether they are here for exam prep, team training, or partnership support.</p></div></div>
-            <div class="bullet"><i>2</i><div><strong>Real credibility.</strong><p class="muted">Trainer authority, curriculum quality, and outcomes are placed early so the page earns confidence fast.</p></div></div>
-            <div class="bullet"><i>3</i><div><strong>High-intent CTA.</strong><p class="muted">The page pushes a direct action—register interest, submit inquiry, or schedule a call—without clutter.</p></div></div>
-          </div>
-        </div>
-        <div class="card" style="padding:var(--space-8);">
-          <span class="tag">Suggested upgrades</span>
-          <h3>How I improved the reference pattern</h3>
-          <div class="bullet-list">
-            <div><strong>Better hierarchy:</strong> stronger hero, less text dump, clearer spacing.</div>
-            <div><strong>Modern design:</strong> softer surfaces, better typography, cleaner cards.</div>
-            <div><strong>Lead generation:</strong> more prominent CTA placement and a contact form section.</div>
-            <div><strong>Scalability:</strong> easier to expand into About, Programs, Blog, and Contact pages later.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="trainer">
-      <div class="container trainer">
-        <div class="profile">
-          <div>
-            <span class="eyebrow">Lead trainer spotlight</span>
-            <p class="quote" style="margin-top:1rem;">“Use this block to position the founder as both an instructor and a practitioner—not just a course seller.”</p>
-          </div>
-          <div>
-            <strong>Suggested profile points</strong>
-            <p class="muted">PMI-authorized instructor, years of delivery and PMO leadership, practical case-driven teaching, and proven exam-readiness support.</p>
-          </div>
-        </div>
-        <div class="card" style="padding:var(--space-8);">
-          <div class="section-head" style="margin-bottom:var(--space-6);">
-            <h2 style="max-width:14ch;">Make the trainer the proof.</h2>
-            <p>On the real site, the founder section is an important trust anchor, so your version should make it more visual, more concise, and easier to scan.</p>
-          </div>
-          <div class="grid-3" style="grid-template-columns:repeat(3,1fr);gap:var(--space-4);">
-            <div class="card" style="background:var(--color-surface-2);padding:var(--space-5);"><strong>10+ years</strong><p class="muted">Project and PMO experience</p></div>
-            <div class="card" style="background:var(--color-surface-2);padding:var(--space-5);"><strong>Live format</strong><p class="muted">Interactive, cohort-based sessions</p></div>
-            <div class="card" style="background:var(--color-surface-2);padding:var(--space-5);"><strong>Practical focus</strong><p class="muted">Application support and mock tests</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <h2>Proof that feels tangible.</h2>
-          <p>A training website should not rely only on copy, so add testimonials, logos, learner counts, and outcome-driven snippets that reduce hesitation before contact.</p>
-        </div>
-        <div class="testimonial">
-          <article class="card"><p>“The sessions were structured, practical, and much easier to follow than generic prep classes.”</p><p class="muted" style="margin-top:1rem;">Learner testimonial</p></article>
-          <article class="card"><p>“Our team workshop helped us standardize planning and governance across multiple projects.”</p><p class="muted" style="margin-top:1rem;">Corporate client</p></article>
-          <article class="card"><p>“The white-label delivery model made it easy for us to launch a certification track under our own banner.”</p><p class="muted" style="margin-top:1rem;">Training partner</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq">
-      <div class="container split">
-        <div>
-          <span class="eyebrow">FAQ</span>
-          <h2 style="font-family:var(--font-display);font-size:var(--text-xl);margin-top:1rem;">Questions your visitors will ask first.</h2>
-          <p class="muted" style="margin-top:1rem;">The reference site features upcoming cohorts and inquiry-driven actions, so an FAQ helps users resolve objections without leaving the page.</p>
-        </div>
-        <div class="faq">
-          <details open>
-            <summary>Who is this site structure best for?</summary>
-            <p>Certification coaches, boutique consultancies, training institutes, and subject-matter-led education businesses.</p>
-          </details>
-          <details>
-            <summary>Should I keep it one page or multi-page?</summary>
-            <p>Start with one strong homepage, then add dedicated pages for programs, about, and contact once the messaging is validated.</p>
-          </details>
-          <details>
-            <summary>What should the main CTA be?</summary>
-            <p>Use one high-intent action such as register interest, book a free consultation, or request a corporate proposal.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container cta">
-        <div>
-          <span class="eyebrow" style="background:rgba(255,255,255,.1);color:#dceced;">Ready to adapt this?</span>
-          <h2 style="font-family:var(--font-display);font-size:var(--text-xl);margin-top:1rem;max-width:12ch;">Turn the mockup into your real brand site.</h2>
-          <p style="margin-top:1rem;max-width:52ch;">Replace this sample content with your brand name, course list, trainer credentials, testimonials, and booking flow. This layout is intentionally easy to convert into React or Next.js components.</p>
-        </div>
-        <form class="form" aria-label="Contact form mockup">
-          <input type="text" placeholder="Your name" aria-label="Your name">
-          <input type="email" placeholder="Work email" aria-label="Work email">
-          <input type="text" placeholder="What do you need help with?" aria-label="What do you need help with">
-          <textarea rows="4" placeholder="Tell us about your program, company, or audience" aria-label="Project details"></textarea>
-          <button class="btn btn-primary" type="button">Request a proposal</button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-row">
-      <div>ProjectEdge mockup · Designed as a cleaner training-site reference.</div>
-      <div>Programs · Corporate training · Partnerships</div>
-    </div>
-  </footer>
-
-  <script>
-    (function(){
-      const btn=document.querySelector('[data-theme-toggle]');
-      const root=document.documentElement;
-      let theme=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
-      root.setAttribute('data-theme',theme);
-      const icons={
-        dark:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
-        light:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-      };
-      function sync(){btn.innerHTML=theme==='dark'?icons.dark:icons.light;btn.setAttribute('aria-label','Switch to '+(theme==='dark'?'light':'dark')+' mode');}
-      sync();
-      btn.addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';root.setAttribute('data-theme',theme);sync();});
-    })();
-  </script>
 </body>
 </html>
