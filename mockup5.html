@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nameless Project Management | Executive PM Training</title>
+    <meta name="description" content="Premium project management training, PMP certification, and corporate PMO consulting.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root, [data-theme="light"] {
+            /* Typography */
+            --font-body: 'Inter', system-ui, sans-serif;
+            --font-display: 'Playfair Display', serif;
+            
+            /* Core Colors - Serious & Professional */
+            --color-bg: #ffffff;
+            --color-surface: #f8fafc;
+            --color-surface-elevated: #ffffff;
+            --color-border: #e2e8f0;
+            --color-border-hover: #cbd5e1;
+            
+            /* Text Colors */
+            --color-text: #0f172a;
+            --color-text-muted: #475569;
+            --color-text-faint: #94a3b8;
+            --color-text-inverse: #ffffff;
+            
+            /* Brand Colors - Deep Navy & Gold Accent */
+            --color-primary: #0f172a;
+            --color-primary-hover: #1e293b;
+            --color-accent: #c29b57; /* Sophisticated gold */
+            --color-accent-hover: #a68448;
+            --color-accent-light: #fef9ec;
+            
+            /* Status */
+            --color-success: #16a34a;
+            
+            /* Sizing & Spacing */
+            --radius-sm: 0.25rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 1rem;
+            --container-max: 1200px;
+            
+            --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+            --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+            
+            /* Spacing Scale */
+            --space-2: 0.5rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-24: 6rem;
+        }
+
+        [data-theme="dark"] {
+            --color-bg: #090e17;
+            --color-surface: #111827;
+            --color-surface-elevated: #1f2937;
+            --color-border: #1f2937;
+            --color-border-hover: #374151;
+            
+            --color-text: #f8fafc;
+            --color-text-muted: #94a3b8;
+            --color-text-faint: #64748b;
+            --color-text-inverse: #0f172a;
+            
+            --color-primary: #ffffff;
+            --color-primary-hover: #e2e8f0;
+            --color-accent: #d4af37;
+            --color-accent-hover: #e5c158;
+            --color-accent-light: rgba(212, 175, 55, 0.1);
+            
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        button, input, select, textarea {
+            font: inherit;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--color-text);
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+        }
+
+        .text-muted { color: var(--color-text-muted); }
+        .text-accent { color: var(--color-accent); }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.875rem 1.75rem;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-align: center;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-text-inverse);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-hover);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-accent {
+            background-color: var(--color-accent);
+            color: #ffffff;
+        }
+
+        .btn-accent:hover {
+            background-color: var(--color-accent-hover);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--color-border);
+            color: var(--color-text);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--color-text);
+            background-color: var(--color-surface);
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: color-mix(in srgb, var(--color-bg) 95%, transparent);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 5rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-icon {
+            color: var(--color-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--color-text-muted);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-text);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--color-text-muted);
+            cursor: pointer;
+            padding: 0.5rem;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s;
+        }
+
+        .theme-toggle:hover {
+            color: var(--color-text);
+            background-color: var(--color-surface);
+        }
+
+        /* Hero */
+        .hero {
+            padding: var(--space-24) 0 var(--space-16);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--color-accent-light) 0%, transparent 70%);
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.375rem 1rem;
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--color-text-muted);
+            margin-bottom: var(--space-8);
+        }
+
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--color-accent);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: var(--space-6);
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: clamp(1.125rem, 2vw, 1.25rem);
+            color: var(--color-text-muted);
+            margin-bottom: var(--space-8);
+            max-width: 65ch;
+            margin-inline: auto;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Stats Strip */
+        .stats-strip {
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+            background-color: var(--color-surface);
+            padding: var(--space-8) 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-4);
+            text-align: center;
+        }
+
+        .stat-item {
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 10%;
+            height: 80%;
+            width: 1px;
+            background-color: var(--color-border);
+        }
+
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Section Commons */
+        .section {
+            padding: var(--space-24) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto var(--space-16);
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-4);
+        }
+
+        .section-header p {
+            color: var(--color-text-muted);
+            font-size: 1.125rem;
+        }
+
+        /* Programs Grid */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-8);
+        }
+
+        .program-card {
+            background-color: var(--color-surface-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-8);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-card:hover {
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .program-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            display: grid;
+            place-items: center;
+            color: var(--color-accent);
+            margin-bottom: var(--space-6);
+        }
+
+        .program-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-2);
+        }
+
+        .program-meta {
+            font-size: 0.875rem;
+            color: var(--color-text-faint);
+            margin-bottom: var(--space-4);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .program-card p {
+            color: var(--color-text-muted);
+            margin-bottom: var(--space-8);
+            flex-grow: 1;
+        }
+
+        .program-link {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.2s;
+        }
+
+        .program-link:hover {
+            gap: 0.75rem;
+            color: var(--color-accent);
+        }
+
+        /* Dual Section */
+        .dual-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-16);
+            align-items: center;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: var(--space-8);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: var(--space-6);
+        }
+
+        .feature-item-icon {
+            color: var(--color-success);
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .feature-item h4 {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .feature-item p {
+            color: var(--color-text-muted);
+            font-size: 0.9375rem;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background-color: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            display: grid;
+            place-items: center;
+            color: var(--color-text-faint);
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
+            background-size: 200% 200%;
+            animation: shimmer 3s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+        }
+
+        .testimonial-card {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: var(--space-8);
+        }
+
+        .quote-icon {
+            color: var(--color-accent);
+            opacity: 0.3;
+            margin-bottom: var(--space-4);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: var(--color-text-muted);
+            margin-bottom: var(--space-6);
+            font-size: 0.9375rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--color-border);
+        }
+
+        .author-info h5 {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            margin-bottom: 0.125rem;
+        }
+
+        .author-info span {
+            font-size: 0.75rem;
+            color: var(--color-text-faint);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--color-primary);
+            color: var(--color-text-inverse);
+            padding: var(--space-16) 0;
+            text-align: center;
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-24);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: radial-gradient(circle at center, rgba(194, 155, 87, 0.15) 0%, transparent 60%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            color: var(--color-text-inverse);
+            font-size: 2.5rem;
+            margin-bottom: var(--space-4);
+        }
+
+        .cta-content p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: var(--space-8);
+            font-size: 1.125rem;
+        }
+
+        [data-theme="dark"] .cta-section {
+            background-color: var(--color-surface-elevated);
+            border: 1px solid var(--color-border);
+        }
+
+        [data-theme="dark"] .cta-content h2 {
+            color: var(--color-text);
+        }
+
+        [data-theme="dark"] .cta-content p {
+            color: var(--color-text-muted);
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--color-border);
+            padding: var(--space-16) 0 var(--space-8);
+            background-color: var(--color-surface);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--space-8);
+            margin-bottom: var(--space-12);
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-6);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: var(--space-3);
+        }
+
+        .footer-col ul a {
+            color: var(--color-text-muted);
+            font-size: 0.9375rem;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--color-accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--color-border);
+            padding-top: var(--space-8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--color-text-faint);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .programs-grid, .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .dual-section {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .stat-item:nth-child(2)::after {
+                display: none;
+            }
+            .stat-item:nth-child(1)::after, .stat-item:nth-child(3)::after {
+                background-color: var(--color-border);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .programs-grid, .stats-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .stat-item::after {
+                display: none !important;
+            }
+            .stat-item {
+                border-bottom: 1px solid var(--color-border);
+                padding-bottom: var(--space-4);
+            }
+            .stat-item:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--space-4);
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav">
+            <a href="#" class="brand">
+                <svg class="brand-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 2 22 22 22"></polygon>
+                    <polyline points="2 17 12 17 17 22"></polyline>
+                </svg>
+                Nameless
+            </a>
+            <nav class="nav-links">
+                <a href="#programs">Programs</a>
+                <a href="#methodology">Methodology</a>
+                <a href="#testimonials">Results</a>
+                <a href="#corporate">Corporate</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Toggle dark mode" data-theme-toggle>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <a href="#contact" class="btn btn-primary">Book Consultation</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    PMI® Authorized Training Partner
+                </div>
+                <h1>Master Project Delivery.<br>Accelerate Your Career.</h1>
+                <p>Executive-grade project management training, certification preparation, and corporate PMO consulting driven by industry leaders.</p>
+                <div class="hero-actions">
+                    <a href="#programs" class="btn btn-accent">View Training Programs</a>
+                    <a href="#corporate" class="btn btn-outline">Corporate Solutions</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Strip -->
+        <div class="stats-strip">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">98%</div>
+                    <div class="stat-label">First-Attempt Pass Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">15+</div>
+                    <div class="stat-label">Years of Excellence</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">8k+</div>
+                    <div class="stat-label">Certified Professionals</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">35h</div>
+                    <div class="stat-label">PMI Contact Hours</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Programs Section -->
+        <section id="programs" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Certification & Training</h2>
+                    <p>Rigorous, structured pathways to achieve your project management goals.</p>
+                </div>
+                <div class="programs-grid">
+                    <!-- Program 1 -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <div class="program-meta">Flagship Course • 35 PDUs</div>
+                        <h3>PMP® Masterclass</h3>
+                        <p>Comprehensive, instructor-led preparation covering predictive, agile, and hybrid methodologies. Guaranteed exam readiness.</p>
+                        <a href="#contact" class="program-link">View Syllabus <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                    </div>
+                    
+                    <!-- Program 2 -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </div>
+                        <div class="program-meta">Foundation • 23 PDUs</div>
+                        <h3>CAPM® Accelerator</h3>
+                        <p>Built for early-career professionals seeking a practical project management foundation and PMI certification.</p>
+                        <a href="#contact" class="program-link">View Syllabus <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                    </div>
+
+                    <!-- Program 3 -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        </div>
+                        <div class="program-meta">Enterprise • Custom</div>
+                        <h3>Corporate PMO</h3>
+                        <p>Custom workshops designed to align your team on standardized governance, delivery frameworks, and agile transformations.</p>
+                        <a href="#contact" class="program-link">Request Proposal <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology Section -->
+        <section id="methodology" class="section" style="background-color: var(--color-surface);">
+            <div class="container dual-section">
+                <div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Beyond textbook theory.</h2>
+                    <p class="text-muted" style="font-size: 1.125rem;">I bridge the gap between theoretical frameworks and practical execution. My methodology ensures you're prepared for the exam room and the boardroom.</p>
+                    
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <svg class="feature-item-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            <div>
+                                <h4>Case-Study Driven</h4>
+                                <p>Every concept is anchored in real project scenarios to develop intuitive decision-making skills.</p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-item-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            <div>
+                                <h4>Application Audit Support</h4>
+                                <p>End-to-end guidance on your PMI application framing, submission, and potential audit processes.</p>
+                            </div>
+                        </li>
+                        <li class="feature-item">
+                            <svg class="feature-item-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            <div>
+                                <h4>Post-Training Mentorship</h4>
+                                <p>Continued access to resources, mock exams, and instructor strategy alignment until you pass.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="image-placeholder">
+                    <span>Executive Delivery Model</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Proven Results</h2>
+                    <p>Join thousands of professionals who have advanced their careers through my programs.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <p>"The instruction went far beyond memorization. The focus on real-world application made the situational questions on the PMP exam feel incredibly straightforward. Passed Above Target on my first try."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"></div>
+                            <div class="author-info">
+                                <h5>Sarah Jenkins</h5>
+                                <span>Senior IT Project Manager</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <p>"Nameless delivered a custom corporate workshop that entirely aligned our PMO on agile governance. The methodology is serious, practical, and immediately actionable for our enterprise teams."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"></div>
+                            <div class="author-info">
+                                <h5>David Chen</h5>
+                                <span>Director of Operations</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <p>"The mentorship didn't stop when the class ended. The application review and pre-exam strategy session were invaluable. You are investing in a true career partnership, not just a course."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"></div>
+                            <div class="author-info">
+                                <h5>Marcus Thorne</h5>
+                                <span>Program Director</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section id="contact">
+            <div class="container">
+                <div class="cta-section">
+                    <div class="cta-content">
+                        <h2>Ready to optimize your project delivery?</h2>
+                        <p>Connect with me directly to discuss certification cohorts, request a corporate capabilities deck, or schedule a capability assessment.</p>
+                        <a href="mailto:contact@namelesspm.com" class="btn btn-accent" style="font-size: 1.125rem; padding: 1rem 2rem;">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="brand" style="margin-bottom: 1.5rem; display: inline-flex;">
+                        <svg class="brand-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 22 22 22"></polygon>
+                            <polyline points="2 17 12 17 17 22"></polyline>
+                        </svg>
+                        Nameless
+                    </a>
+                    <p class="text-muted" style="font-size: 0.9375rem; max-width: 250px;">Elevating project delivery standards through authoritative training and enterprise consulting.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#programs">PMP® Certification</a></li>
+                        <li><a href="#programs">CAPM® Certification</a></li>
+                        <li><a href="#corporate">Corporate Workshops</a></li>
+                        <li><a href="#corporate">PMO Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#methodology">My Methodology</a></li>
+                        <li><a href="#instructors">Credentials</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#blog">Insights Blog</a></li>
+                        <li><a href="#guide">PMI Application Guide</a></li>
+                        <li><a href="#portal">Student Portal</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 Nameless Project Management. All rights reserved.</div>
+                <div style="display: flex; gap: 1.5rem;">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle Logic
+        const toggleBtn = document.querySelector('[data-theme-toggle]');
+        const htmlRoot = document.documentElement;
+        
+        // Check system preference or default to light
+        let currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        htmlRoot.setAttribute('data-theme', currentTheme);
+
+        const icons = {
+            light: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>',
+            dark: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>'
+        };
+
+        const updateIcon = () => {
+            toggleBtn.innerHTML = currentTheme === 'dark' ? icons.dark : icons.light;
+            toggleBtn.setAttribute('aria-label', `Switch to ${currentTheme === 'dark' ? 'light' : 'dark'} mode`);
+        };
+        
+        updateIcon();
+
+        toggleBtn.addEventListener('click', () => {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlRoot.setAttribute('data-theme', currentTheme);
+            updateIcon();
+        });
+    </script>
+</body>
+</html>

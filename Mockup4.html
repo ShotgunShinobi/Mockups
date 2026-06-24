@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PMP Coach Mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl: clamp(2.5rem, 1rem + 4vw, 5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+      --color-bg: #f6f1e8;
+      --color-surface: #fbf8f2;
+      --color-surface-2: #ffffff;
+      --color-surface-offset: #efe7db;
+      --color-border: #ddd2c3;
+      --color-divider: #e7dccd;
+      --color-text: #1f1a14;
+      --color-text-muted: #6e665d;
+      --color-text-faint: #a79f96;
+      --color-text-inverse: #faf7f2;
+      --color-primary: #0f6b67;
+      --color-primary-hover: #0a5451;
+      --color-primary-highlight: #d7ece8;
+      --color-success: #3f7c33;
+      --radius-sm: 0.375rem; --radius-md: 0.75rem; --radius-lg: 1rem; --radius-xl: 1.5rem; --radius-full: 9999px;
+      --shadow-sm: 0 1px 2px rgba(35,26,18,.06);
+      --shadow-md: 0 12px 30px rgba(35,26,18,.08);
+      --shadow-lg: 0 24px 60px rgba(35,26,18,.12);
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-body: 'Inter', Arial, sans-serif;
+      --content-wide: 1180px;
+      --content-default: 1040px;
+    }
+    [data-theme="dark"] {
+      --color-bg: #171411;
+      --color-surface: #201c18;
+      --color-surface-2: #26211d;
+      --color-surface-offset: #2c2621;
+      --color-border: #3d352d;
+      --color-divider: #312a24;
+      --color-text: #eee6da;
+      --color-text-muted: #b6aa9e;
+      --color-text-faint: #8a8077;
+      --color-text-inverse: #191613;
+      --color-primary: #6eb8b4;
+      --color-primary-hover: #8dd3cf;
+      --color-primary-highlight: #213532;
+      --color-success: #8ec67e;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.2);
+      --shadow-md: 0 12px 30px rgba(0,0,0,.28);
+      --shadow-lg: 0 24px 60px rgba(0,0,0,.34);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh; line-height: 1.6; font-family: var(--font-body); font-size: var(--text-base);
+      color: var(--color-text); background:
+      radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary) 8%, transparent), transparent 28%),
+      linear-gradient(180deg, var(--color-bg), var(--color-surface));
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; border: 0; background: none; cursor: pointer; }
+    .container { width: min(calc(100% - 2rem), var(--content-wide)); margin-inline: auto; }
+    .skip-link { position:absolute; left:-999px; top:auto; }
+    .skip-link:focus { left:1rem; top:1rem; background:var(--color-surface-2); padding:.75rem 1rem; border-radius:var(--radius-md); z-index:999; }
+    .site-header {
+      position: sticky; top: 0; z-index: 30; backdrop-filter: blur(16px);
+      background: color-mix(in srgb, var(--color-bg) 78%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+    }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:var(--space-4); min-height:78px; }
+    .brand { display:flex; align-items:center; gap:.9rem; font-weight:700; }
+    .brand-mark {
+      width: 42px; height: 42px; border-radius: 12px; display:grid; place-items:center;
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 60%, white)); color: white;
+      box-shadow: var(--shadow-sm);
+    }
+    .brand-mark svg { width: 24px; height: 24px; }
+    .brand-copy small { display:block; font-size:var(--text-xs); color:var(--color-text-muted); letter-spacing:.08em; text-transform:uppercase; }
+    .nav-links { display:flex; gap:1.1rem; flex-wrap:wrap; align-items:center; }
+    .nav-links a { font-size: var(--text-sm); color: var(--color-text-muted); }
+    .nav-actions { display:flex; align-items:center; gap:.75rem; }
+    .theme-toggle, .ghost-btn {
+      min-width: 44px; min-height: 44px; border-radius: var(--radius-full);
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      background: color-mix(in srgb, var(--color-surface-2) 75%, transparent);
+      color: var(--color-text);
+    }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:.6rem; min-height:48px; padding:0 1.1rem;
+      border-radius: var(--radius-full); font-size:var(--text-sm); font-weight:700;
+      transition: .2s ease;
+    }
+    .btn-primary { background: var(--color-primary); color: var(--color-text-inverse); box-shadow: var(--shadow-sm); }
+    .btn-primary:hover { background: var(--color-primary-hover); }
+    .btn-secondary { background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface-2)); color: var(--color-primary); }
+    .hero { padding: clamp(3rem, 6vw, 6rem) 0 clamp(2rem, 4vw, 4rem); }
+    .hero-grid { display:grid; grid-template-columns: 1.2fr .9fr; gap: clamp(1.5rem, 4vw, 4rem); align-items:center; }
+    .eyebrow {
+      display:inline-flex; align-items:center; gap:.55rem; padding:.45rem .8rem; border-radius:var(--radius-full);
+      background: var(--color-primary-highlight); color: var(--color-primary); font-size:var(--text-xs); font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    }
+    h1, h2, h3 { font-family: var(--font-display); line-height: 1.04; letter-spacing: -.03em; }
+    h1 { font-size: clamp(3rem, 6vw, 5.8rem); max-width: 11ch; margin-top: 1rem; }
+    .hero p { max-width: 58ch; color: var(--color-text-muted); margin-top: 1rem; }
+    .hero-actions, .hero-stats { display:flex; gap:1rem; flex-wrap:wrap; margin-top: 1.5rem; }
+    .stat-chip {
+      padding: .9rem 1rem; border-radius: var(--radius-lg); background: color-mix(in srgb, var(--color-surface-2) 80%, transparent);
+      border: 1px solid color-mix(in srgb, var(--color-text) 9%, transparent); min-width: 148px;
+    }
+    .stat-chip strong { display:block; font-size: var(--text-lg); }
+    .hero-card {
+      position: relative; padding: 1.2rem; background: var(--color-surface-2); border:1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      border-radius: 28px; box-shadow: var(--shadow-lg);
+    }
+    .coach-card {
+      display:grid; gap:1rem; background: linear-gradient(180deg, color-mix(in srgb, var(--color-primary) 8%, var(--color-surface-2)), var(--color-surface-2));
+      border-radius: 22px; padding: 1.25rem;
+    }
+    .coach-photo {
+      aspect-ratio: 4 / 4.5; border-radius: 20px; overflow:hidden;
+      background: linear-gradient(160deg, #e8ddd0, #cfdedc);
+      display:flex; align-items:end; justify-content:center;
+    }
+    .coach-photo svg { width:100%; height:100%; }
+    .mini-proof { display:grid; grid-template-columns: repeat(2, 1fr); gap: .85rem; }
+    .proof-box { padding: .95rem; border-radius: 18px; background: var(--color-bg); border:1px solid var(--color-divider); }
+    .section { padding: clamp(2.8rem, 6vw, 5rem) 0; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom: 1.5rem; }
+    .section-head p { color: var(--color-text-muted); max-width: 52ch; }
+    .course-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .course-card {
+      background: var(--color-surface-2); border:1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+      border-radius: 24px; padding: 1.25rem; display:flex; flex-direction:column; gap:1rem; box-shadow: var(--shadow-sm);
+    }
+    .pill { width: fit-content; padding:.35rem .7rem; border-radius:999px; font-size:var(--text-xs); font-weight:700; text-transform:uppercase; letter-spacing:.08em; }
+    .pill.beginner { background:#efe8ff; color:#6941c6; }
+    .pill.cert { background:#e2f2ef; color:#0f6b67; }
+    .pill.advanced { background:#fbe8db; color:#9a4e12; }
+    .pill.free { background:#f0f5db; color:#597227; }
+    .card-meta { display:flex; gap:.65rem; flex-wrap:wrap; color: var(--color-text-muted); font-size: var(--text-sm); }
+    .course-card ul { list-style:none; display:grid; gap:.55rem; color:var(--color-text-muted); font-size:var(--text-sm); }
+    .course-card li::before { content:"•"; color:var(--color-primary); margin-right:.5rem; }
+    .story-wrap { display:grid; grid-template-columns: .95fr 1.05fr; gap:1rem; }
+    .story-card, .testimonial-panel, .contact-panel, .footer-card {
+      background: var(--color-surface-2); border-radius: 26px; border:1px solid color-mix(in srgb, var(--color-text) 10%, transparent); box-shadow: var(--shadow-sm);
+    }
+    .story-card { padding: 1.4rem; }
+    .timeline { display:grid; gap:.9rem; margin-top: 1rem; }
+    .timeline-item { padding-left: 1rem; border-left: 2px solid color-mix(in srgb, var(--color-primary) 25%, var(--color-divider)); }
+    .badge-row { display:flex; gap:.75rem; flex-wrap:wrap; margin-top:1rem; }
+    .badge { padding:.45rem .7rem; border-radius:999px; background: var(--color-bg); color: var(--color-text-muted); font-size:var(--text-xs); border:1px solid var(--color-divider); }
+    .testimonial-panel { padding: 1.4rem; }
+    .testimonial-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; }
+    .quote-card { background: var(--color-bg); border-radius: 20px; padding: 1rem; border:1px solid var(--color-divider); }
+    .quote-card p { color: var(--color-text-muted); font-size: var(--text-sm); }
+    .quote-card strong { display:block; margin-top: .75rem; }
+    .contact-grid { display:grid; grid-template-columns: 1fr .9fr; gap:1rem; }
+    .contact-panel { padding: 1.4rem; }
+    .contact-list { display:grid; gap: .85rem; margin-top: 1rem; }
+    .contact-item { padding: 1rem; background: var(--color-bg); border-radius: 18px; border:1px solid var(--color-divider); }
+    .mock-form { display:grid; gap:.9rem; }
+    .mock-form label { font-size: var(--text-sm); font-weight: 600; }
+    .mock-form input, .mock-form textarea {
+      width:100%; margin-top:.45rem; border:1px solid var(--color-border); background: var(--color-bg); color: var(--color-text);
+      border-radius: 16px; padding: .95rem 1rem; min-height: 52px;
+    }
+    .mock-form textarea { min-height: 126px; resize: vertical; }
+    footer { padding: 0 0 2rem; }
+    .footer-card { padding: 1.25rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    .footer-links { display:flex; flex-wrap:wrap; gap:1rem; color: var(--color-text-muted); font-size: var(--text-sm); }
+    @media (max-width: 1080px) {
+      .hero-grid, .story-wrap, .contact-grid, .course-grid, .testimonial-grid { grid-template-columns: 1fr 1fr; }
+      .course-grid .course-card:last-child { grid-column: span 2; }
+    }
+    @media (max-width: 760px) {
+      .nav { align-items:flex-start; padding: .85rem 0; }
+      .nav-links { display:none; }
+      .hero-grid, .story-wrap, .contact-grid, .course-grid, .testimonial-grid, .mini-proof { grid-template-columns: 1fr; }
+      .course-grid .course-card:last-child { grid-column: auto; }
+      h1 { max-width: 9ch; }
+      .section-head, .footer-card { align-items:flex-start; flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Project Path Mentor home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 18h14" />
+            <path d="M7 18V8l5-3 5 3v10" />
+            <path d="M10 13h4" />
+          </svg>
+        </span>
+        <span class="brand-copy">Project Path Mentor<small>Website mockup</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#courses">Courses</a>
+        <a href="#founder">Founder</a>
+        <a href="#testimonials">Results</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">◐</button>
+        <a class="btn btn-primary" href="#contact">Book a Call</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Mentorship-led PMP prep</span>
+          <h1>Build a calmer path to PMP certification.</h1>
+          <p>This mockup keeps the same business shape as the reference site: a mentor-led training brand, course catalog, trust metrics, testimonials, and a strong conversion path into enrollment or contact.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#courses">Explore programs</a>
+            <a class="btn btn-secondary" href="#founder">Meet the founder</a>
+          </div>
+          <div class="hero-stats" aria-label="Trust metrics">
+            <div class="stat-chip"><strong>55K+</strong><span>YouTube subscribers</span></div>
+            <div class="stat-chip"><strong>40K+</strong><span>Students reached</span></div>
+            <div class="stat-chip"><strong>4 flagship</strong><span>Learning offers</span></div>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <div class="coach-card">
+            <div class="coach-photo" aria-hidden="true">
+              <svg viewBox="0 0 420 480" xmlns="http://www.w3.org/2000/svg" role="img">
+                <defs>
+                  <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#efe0cf"/>
+                    <stop offset="100%" stop-color="#cde4e0"/>
+                  </linearGradient>
+                </defs>
+                <rect width="420" height="480" rx="28" fill="url(#bgGrad)"/>
+                <circle cx="218" cy="152" r="74" fill="#c98d64"/>
+                <path d="M152 141c8-58 47-88 98-88 43 0 78 24 94 66-16-7-32-8-49-4-20-26-60-32-92-14-13 8-24 22-31 40z" fill="#463127"/>
+                <path d="M149 465c7-118 54-178 136-178 79 0 127 57 136 178" fill="#0f6b67"/>
+                <path d="M168 253c16 18 36 27 56 27 24 0 47-10 69-28v48c-18 16-42 24-70 24-22 0-42-8-55-20z" fill="#b87455"/>
+                <rect x="42" y="357" width="126" height="74" rx="18" fill="#ffffff" fill-opacity="0.65"/>
+                <text x="61" y="390" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#143733">PMP Mentor</text>
+                <text x="61" y="414" font-family="Inter, Arial, sans-serif" font-size="14" fill="#34514d">Coach • Guide • Reviewer</text>
+              </svg>
+            </div>
+            <div>
+              <h2 style="font-size:var(--text-xl);">Nilotpal-style founder panel</h2>
+              <p style="color:var(--color-text-muted); margin-top:.5rem;">Use a real founder portrait, certification badges, and a short authority summary here in the final design.</p>
+            </div>
+            <div class="mini-proof">
+              <div class="proof-box"><strong>35 PDU</strong><div style="color:var(--color-text-muted); font-size:var(--text-sm);">Flagship prep course</div></div>
+              <div class="proof-box"><strong>Mock exams</strong><div style="color:var(--color-text-muted); font-size:var(--text-sm);">Practice-first learning</div></div>
+              <div class="proof-box"><strong>Self-paced</strong><div style="color:var(--color-text-muted); font-size:var(--text-sm);">On-demand training</div></div>
+              <div class="proof-box"><strong>Email help</strong><div style="color:var(--color-text-muted); font-size:var(--text-sm);">Human support layer</div></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="courses">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Course lineup</span>
+            <h2 style="font-size:var(--text-2xl); margin-top:.8rem;">A cleaner course catalog section</h2>
+          </div>
+          <p>The source site groups offers by level and certification goal. This mockup turns that into clearer product cards with stronger hierarchy and easier scanning.</p>
+        </div>
+        <div class="course-grid">
+          <article class="course-card">
+            <span class="pill beginner">Beginner</span>
+            <h3 style="font-size:var(--text-xl);">Project Management Basics</h3>
+            <div class="card-meta"><span>16+ hours</span><span>PDUs/CPDs</span><span>Beginner-friendly</span></div>
+            <ul>
+              <li>Career transition framing.</li>
+              <li>Phase-by-phase project learning.</li>
+              <li>MS Project introduction.</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contact">View details</a>
+          </article>
+          <article class="course-card">
+            <span class="pill cert">Certification</span>
+            <h3 style="font-size:var(--text-xl);">PMP 35 PDU Masterclass</h3>
+            <div class="card-meta"><span>Flagship offer</span><span>35 PDUs</span><span>Exam aligned</span></div>
+            <ul>
+              <li>Long-form prep journey.</li>
+              <li>Framework-based question solving.</li>
+              <li>Primary CTA section.</li>
+            </ul>
+            <a class="btn btn-primary" href="#contact">Primary CTA</a>
+          </article>
+          <article class="course-card">
+            <span class="pill advanced">Advanced</span>
+            <h3 style="font-size:var(--text-xl);">Mock Simulator + EVM</h3>
+            <div class="card-meta"><span>380+ questions</span><span>Advanced drills</span><span>Specialized skill</span></div>
+            <ul>
+              <li>Practice-intensive path.</li>
+              <li>Advanced project control topics.</li>
+              <li>Good upsell pairing.</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contact">See modules</a>
+          </article>
+          <article class="course-card">
+            <span class="pill free">Free resources</span>
+            <h3 style="font-size:var(--text-xl);">Lead magnets that convert</h3>
+            <div class="card-meta"><span>Study guide</span><span>Sample quiz</span><span>Email capture</span></div>
+            <ul>
+              <li>Free resource strip near top.</li>
+              <li>Blog and quiz support.</li>
+              <li>Newsletter growth opportunity.</li>
+            </ul>
+            <a class="btn btn-secondary" href="#contact">Grab free pack</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="founder">
+      <div class="container story-wrap">
+        <article class="story-card">
+          <span class="eyebrow">Founder story</span>
+          <h2 style="font-size:var(--text-2xl); margin-top:.8rem;">Authority section with more polish</h2>
+          <p style="color:var(--color-text-muted); margin-top:1rem;">The reference homepage includes a founder bio, credentials, and social proof. This version keeps that structure but presents it as a premium editorial block.</p>
+          <div class="timeline">
+            <div class="timeline-item"><strong>15+ years experience</strong><div style="color:var(--color-text-muted);">Industry depth across multiple sectors.</div></div>
+            <div class="timeline-item"><strong>PMP and PRINCE2 credentials</strong><div style="color:var(--color-text-muted);">Clear trust markers visible early.</div></div>
+            <div class="timeline-item"><strong>London-based training company</strong><div style="color:var(--color-text-muted);">Useful for legitimacy and contact context.</div></div>
+          </div>
+          <div class="badge-row">
+            <span class="badge">YouTube-led funnel</span>
+            <span class="badge">Udemy-linked offers</span>
+            <span class="badge">Conversion-focused layout</span>
+          </div>
+        </article>
+        <aside class="testimonial-panel">
+          <span class="eyebrow">What to preserve</span>
+          <h3 style="font-size:var(--text-xl); margin-top:.8rem;">Core blocks from the original site</h3>
+          <div class="timeline" style="margin-top:1rem;">
+            <div class="timeline-item"><strong>Top navigation for every product line</strong><div style="color:var(--color-text-muted);">Home, core courses, blog, resources, contact.</div></div>
+            <div class="timeline-item"><strong>Visible trust metrics</strong><div style="color:var(--color-text-muted);">Subscriber counts, learner counts, and testimonials stay above the fold or soon after.</div></div>
+            <div class="timeline-item"><strong>Strong testimonial density</strong><div style="color:var(--color-text-muted);">The original uses many student success quotes, so the mockup should keep a proof-heavy section.</div></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="testimonials">
+      <div class="container testimonial-panel">
+        <div class="section-head" style="margin-bottom:.5rem;">
+          <div>
+            <span class="eyebrow">Student proof</span>
+            <h2 style="font-size:var(--text-2xl); margin-top:.8rem;">Testimonials arranged as premium proof cards</h2>
+          </div>
+          <p>The original homepage is testimonial-heavy, with many first-attempt PMP success messages. This grid preserves that conversion strategy while looking more modern.</p>
+        </div>
+        <div class="testimonial-grid">
+          <article class="quote-card"><p>“Passed on my first attempt after following the structured question framework and weekly study rhythm.”</p><strong>Student A</strong></article>
+          <article class="quote-card"><p>“The explanation style made complex PMP scenarios feel practical instead of overwhelming.”</p><strong>Student B</strong></article>
+          <article class="quote-card"><p>“Mock exams plus the mentor videos gave me the confidence to schedule my test early.”</p><strong>Student C</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <article class="contact-panel">
+          <span class="eyebrow">Get in touch</span>
+          <h2 style="font-size:var(--text-2xl); margin-top:.8rem;">High-converting contact area</h2>
+          <p style="color:var(--color-text-muted); margin-top:1rem;">The source site ends with direct contact details and a simple form. This mockup keeps that practical structure while making the CTA area feel more deliberate.</p>
+          <div class="contact-list">
+            <div class="contact-item"><strong>Email</strong><div style="color:var(--color-text-muted);">ray@brandname.com</div></div>
+            <div class="contact-item"><strong>Location</strong><div style="color:var(--color-text-muted);">London, UK</div></div>
+            <div class="contact-item"><strong>Best CTA</strong><div style="color:var(--color-text-muted);">Book a clarity call or ask for course guidance.</div></div>
+          </div>
+        </article>
+        <aside class="contact-panel">
+          <h3 style="font-size:var(--text-xl);">Mock inquiry form</h3>
+          <form class="mock-form">
+            <label>Name<input type="text" placeholder="Your name"></label>
+            <label>Email<input type="email" placeholder="you@example.com"></label>
+            <label>Your goal<textarea placeholder="I want help choosing the right PMP path..."></textarea></label>
+            <button class="btn btn-primary" type="button">Send to team</button>
+          </form>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-card">
+      <div>
+        <strong>Project Path Mentor</strong>
+        <p style="color:var(--color-text-muted); margin-top:.35rem; max-width:56ch;">Concept mockup inspired by a PMP training brand: founder-led trust, structured courses, proof-heavy storytelling, and clear conversion blocks.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#courses">Courses</a>
+        <a href="#founder">Founder</a>
+        <a href="#testimonials">Results</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const root = document.documentElement;
+      let mode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', mode);
+      const render = () => {
+        toggle.textContent = mode === 'dark' ? '☀' : '◐';
+        toggle.setAttribute('aria-label', mode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      };
+      render();
+      toggle.addEventListener('click', () => {
+        mode = mode === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', mode);
+        render();
+      });
+    })();
+  </script>
+</body>
+</html>
